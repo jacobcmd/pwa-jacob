@@ -16,16 +16,26 @@ self.addEventListener("install", (e) => {
 });
 
 
-//Evento fetch
-self.addEventListener("fetch", event => {
-	event.respondWith(
-		caches.open('cache-v1').then(cache => {
-			return cache.match(event.request).then(response => {
-				return response || fetch(event.request).then(networkResponse => {
-					cache.put(event.request, networkResponse.clone());
-					return networkResponse;
-				});
-			})
-		})
-	);
+self.addEventListener('fetch', e =>{
+    //cache with network fallback
+    const respuesta = caches.match( e.request )
+        .then ( res => {
+            if ( res ) return res;
+            //no existe el archivo
+            //tengo que ir a la web
+            console.log('No existe', e.request.url);
+            return fetch( e.request ).then ( newResp => {
+                caches.open('cache-v1')
+                    .then( cache => {
+                        cache.put( e.request, newResp);
+                    }
+
+                    )
+                return newResp.clone;
+            });
+        });
+        e.respondWith(respuesta);
+    //only cache
+    //e.respondWith( caches.match(e.request));
 });
+
