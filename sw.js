@@ -33,8 +33,8 @@ self.addEventListener('fetch', e =>{
                 return newResp.clone;
             });
         });
-        e.respondWith(respuesta);
+        //e.respondWith(respuesta);
     //only cache
-    //e.respondWith( caches.match(e.request));
+    e.respondWith( caches.match(e.request));
 });
 
