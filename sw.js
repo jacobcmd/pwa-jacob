@@ -6,8 +6,8 @@ self.addEventListener('install', e =>{
             'images/poeta1.jpg',
             'images/poeta2.jpg',
             'images/poeta3.jpg',
-            'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'
-      ,      'videos/7-hispanos.mp4',
+            'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css',      
+            'videos/7-hispanos.mp4',
             'videos/10-poemas.mp4',
             'videos/Antonio-MACHADO.mp4'
           ])
