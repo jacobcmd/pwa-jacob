@@ -1,16 +1,18 @@
-self.addEventListener("install", (e) => {
-  caches.open("cache-v1").then((cache) => {
-    cache.addAll([
-      "index.html",
-      "images/poeta1.jpg",
-      "images/poeta2.jpg",
-      "images/poeta3.jpg",
-      "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css",
-      "videos/7-hispanos.mp4",
-      "videos/10-poemas.mp4",
-      "videos/Antonio-MACHADO.mp4",
-    ]);
-  });
+self.addEventListener('install', e =>{
+  const cacheProm = caches.open('cache-v1')
+      .then(cache => {
+          return cache.addAll([
+            'index.html',
+            'images/poeta1.jpg',
+            'images/poeta2.jpg',
+            'images/poeta3.jpg',
+            'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'
+      ,      'videos/7-hispanos.mp4',
+            'videos/10-poemas.mp4',
+            'videos/Antonio-MACHADO.mp4'
+          ])
+          
+      });
   e.waitUntil(cacheProm);
 });
 
@@ -33,8 +35,8 @@ self.addEventListener('fetch', e =>{
                 return newResp.clone;
             });
         });
-        //e.respondWith(respuesta);
+        e.respondWith(respuesta);
     //only cache
-    e.respondWith( caches.match(e.request));
+    //e.respondWith( caches.match(e.request));
 });
 
