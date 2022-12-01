@@ -6,7 +6,8 @@ self.addEventListener('install', e =>{
             'images/poeta1.jpg',
             'images/poeta2.jpg',
             'images/poeta3.jpg',
-            'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'
+            'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css',
+            'https://jacob.kiubix.biz/videos/10-poemas.mp4'
           ])
           
       });
