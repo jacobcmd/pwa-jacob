@@ -1,6 +1,7 @@
 self.addEventListener("install", (e) => {
   caches.open("cache-v1").then((cache) => {
     cache.addAll([
+      "index.html",
       "images/poeta1.jpg",
       "images/poeta2.jpg",
       "images/poeta3.jpg",
